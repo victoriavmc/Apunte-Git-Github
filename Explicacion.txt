@@ -6,21 +6,21 @@ cd para cambiar directorio
 ls para ver los archivos
 mkdir es Agregar carpeta
 rmdir es Eliminar carpeta
-git rm --cached Explicacion.txt
+git rm --cached Explicacion.txt (Lo que hace es borrar el archivo del árbol de trabajo de GIT. El archivo seguirá en la pc, pero para GIT no existe.)
 ##########################################################################
 git init para crear un repositorio dentro de la carpeta
 git status ver estado
-git add "Ejemplo" agregar al repositorio
+git add "Ejemplo" agregar al repositorio o git add . (agregara todo)
 ##########################################################################
 git commit -m " Comentario"
 git log ver historial
 git commit --amend Solo cambiar de manera local.
-git branch "Ejemplo-RamaCoca" crear ramas del main (tronco)
-git branch "Ejemplo-RamaPepsi"
+git branch "Ejemplo-Rama1" crear ramas del main (tronco)
+git branch "Ejemplo-Rama2"
 git branch Vemos las ramas creadas
-git checkout "Ejemplo-RamaCoca" cambiar de rama
+git checkout "Ejemplo-Rama1" cambiar de rama
 (Crear y cambiar de rama, siempre desde el main) git checkout -b "otraversion"
-git branch -m "Ejemplo-RamaCoca" "Version2delEjemplo" es para cambiar de nombre la rama desde la main
+git branch -m "Ejemplo-Rama1 "Version2delEjemplo" es para cambiar de nombre la rama desde la main
 git branch -d "Version2delEjemplo" no hay que estar en la rama a borrar.
 Crear commit en una rama, solo se debe estar en la rama. 
 Fusionar ramas, para ello debo estar en la rama que recibira la Fusion
@@ -52,7 +52,6 @@ si queremos ver antes de combinarlos haremos
 git checkout origin/main_rama
 y luego volvemos git checkout main_rama
 // ENVIAR REPOSITORIO LOCAL A GITHUB
-
 ##########################################################################
 Directorio de Trabajo
 La carpeta del proyecto que contiene los archivos y el directorio .git del repositorio. (en este caso se llama "Repositorios")
