@@ -52,6 +52,8 @@ si queremos ver antes de combinarlos haremos
 git checkout origin/main_rama
 y luego volvemos git checkout main_rama
 // ENVIAR REPOSITORIO LOCAL A GITHUB
+git remote add origin https://github.com/victoriavmc/REPOSITORIOASUBIR.git
+git push -u origin main_rama (yo le puse main_rama a mi main/master)
 ##########################################################################
 Directorio de Trabajo
 La carpeta del proyecto que contiene los archivos y el directorio .git del repositorio. (en este caso se llama "Repositorios")
