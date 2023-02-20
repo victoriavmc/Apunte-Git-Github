@@ -1,0 +1,6 @@
+Hola, Mis gustos:
+
+Solo de uno de Todo los Gustos:
+Hola, Me gusta La Pepsi!
+Estoy aprendiendo, Git, esto en especifico es a Fusionar Ramas.
+Estoy aprendiendo con el video de yt de FreeCodeCamp en Español!

@@ -1,0 +1,179 @@
+Primero pongo el usuario y mail.
+git config --global user.name "VictoriaVMC"
+git config --global user.email "mimailde@GitHub.com"
+##########################################################################
+cd para cambiar directorio
+ls para ver los archivos
+mkdir es Agregar carpeta
+rmdir es Eliminar carpeta
+git rm --cached Explicacion.txt
+##########################################################################
+git init para crear un repositorio dentro de la carpeta
+git status ver estado
+git add "Ejemplo" agregar al repositorio
+##########################################################################
+git commit -m " Comentario"
+git log ver historial
+git commit --amend Solo cambiar de manera local.
+git branch "Ejemplo-RamaCoca" crear ramas del main (tronco)
+git branch "Ejemplo-RamaPepsi"
+git branch Vemos las ramas creadas
+git checkout "Ejemplo-RamaCoca" cambiar de rama
+(Crear y cambiar de rama, siempre desde el main) git checkout -b "otraversion"
+git branch -m "Ejemplo-RamaCoca" "Version2delEjemplo" es para cambiar de nombre la rama desde la main
+git branch -d "Version2delEjemplo" no hay que estar en la rama a borrar.
+Crear commit en una rama, solo se debe estar en la rama. 
+Fusionar ramas, para ello debo estar en la rama que recibira la Fusion
+git merge "Nombreramaafusionar"
+##########################################################################
+// Clonacion
+Ubicar donde se quiere hacer las clonaciones.
+Luego : en github ver el https y copiar
+git clone pegar el https
+Ver los commit online
+Git log --oneline
+// Si hacemos un commit a un archivo clonado
+(Se realiza un cambio al  archivo clonado y se guarda un commit)
+ Aparecera que la rama está adelantada al repositorio original.
+# git remove -v   
+Presenta:
+ fetch permite buscar/obtener los cambios en el repositorio remoto.
+ push se envía al repositorio remoto los cambios realizados de manera local.
+ Y su queremos enviar cambios a GitHub. (Push)
+ Se debe tener permisos. Pueden hacerce con https o ssh
+$ git push origin main_rama
+// Actualizar repositorio local
+(Debemos estar en la carpeta clonada)
+git pull origin main_rama
+// git pull obtiene cambios del repositorio original y los combina con el local
+git fetch permite saber si han realizado cambios y si se desea combinarlos
+git fetch origin (se veran los cambios pero no se guardaran, no se combinaran)
+si queremos ver antes de combinarlos haremos
+git checkout origin/main_rama
+y luego volvemos git checkout main_rama
+// ENVIAR REPOSITORIO LOCAL A GITHUB
+
+##########################################################################
+Directorio de Trabajo
+La carpeta del proyecto que contiene los archivos y el directorio .git del repositorio. (en este caso se llama "Repositorios")
+##########################################################################
+Área de preparación
+Conjunto de archivos y cambios que serán incluidos en el próximo commit. (en este caso "Archivo_1.0.txt")
+ Estan todos los cambios que se pueden elegir si incluir o no al prox. commit
+##########################################################################
+El commit si es definitivo, los cambios ya se encuentran en el repositorio.
+Es un registro del estado de un proyecto en un momento especifico.
+Registran los cambios realizados en los archivos en comparacion de la versiones anteriores.
+//////////////////////////////////////////////////////////////////////
+Se maneja con SecureHashAlgorithm-AlgoritmoHashSeguro (SHA)
+Identifica los cambios realizados. Donde se realizaron y Quien los realizo.
+Cada commit presenta (id)(alfanumericamente para Identificar)
+                     Autor, Fecha y hora 
+                     Y un fix: es un mensaje aclarado por el autor, de que fue lo que modifico/realizo en el commit, luego se puede explayar
+##########################################################################
+Repositorio o Directorio de git (.git)
+Contiene los metadatos y las versiones del proyecto.
+ Es la parte del repositorio que se copia cuando se clona un repositorio a una computadora.
+##########################################################################
+//Para ver estado del archivo
+$ get status
+"On branch main_rama
+ No commits yet"
+
+Significa que esta en la rama o directorio de trabajo, no tenemos ningun commit, pero que esta vacia.
+ No hay ningun archivo en la carpeta
+##########################################################################
+Si en la carpeta se crea un documento "Nota.txt". Aparecera U.
+  Eso quiere decir que no se lleva registro.
+   Los cambios, modificaciones no se guardaran. Estara solo en el directorio de trabajo.
+
+$ get status
+"On branch main_rama
+ No commits yet
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        Explicacion.txt
+        Nota
+nothing added to commit but untracked files present (use "git add" to track)"
+
+Significa que esta en la rama o directorio de trabajo, no tenemos ningun commit, pero dice que tenemos archivos que no estamos rastreando/haciendo registro de los cambios.
+##########################################################################
+//Para seleccionar el archivo para ir guardando los cambios se hace:
+$ git add "Ejemplo.txt"
+
+No se vera el cambio pero en el editor (mi caso Visual Studio Code) mostrara una A.
+ Y si veo:
+$ git status
+"On branch main_rama
+ No commits yet
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   Ejemplo.txt"
+Significa que esta en la rama o directorio de trabajo, no tenemos ningun commit, pero dice que tenemos archivos y estamos rastreando/haciendo registro de los cambios.
+##########################################################################
+Si realizamos un cambio al archivo se pondra una M. Significa que se modifico.
+##########################################################################
+// Para remover del area de preparación
+$ git rm --cached "Ejemplo.txt"
+rm 'Ejemplo.txt'
+Y se saco, ya no registra los cambios. No se remueve el documento de tu computadora
+##########################################################################
+// CREAR UN COMMIT
+$ git commit -m "Agregar archivo de texto"
+-m dice que vas a escribir en la linea de comando
+
+"[main_rama (root-commit) 545e266] Agregar archivo de texto
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 Ejemplo.txt"
+##########################################################################
+Para ver la secuencia o historial de commit realizados
+$git log 
+"commit 545e26683508511883d6f377b3209c4dc879b515 (HEAD -> main_rama)
+Author: VictoriaVMC <94030658+victoriavmc@users.noreply.github.com>
+Date:   Sat Feb 18 17:30:42 2023 -0300
+
+    Agregar archivo de texto"
+##########################################################################
+Tambien se puede modificar desde el editor, y ahi luego:
+Se pone $ git status, mostrara que el archivo ha sido modificado.
+ Y habra que poner $ git add . o especificar del archivo. ·Ejemplo.txt
+ ##########################################################################
+// MODIFICAR UN COMMIT
+$ gitt commit --amend
+Se vera el ultimo commit realizado.
+##########################################################################
+// Para deshacer el ultimo commit
+$ git reser --soft HEAD~1
+Va a seguir el documento modificado, pero no sera parte del registro la modificacion.
+
+##########################################################################
+UNA RAMA ES UNA LINEA INDEPENDIENTE DE DESARROLLO EN EL REPOSITORIO. (main es la principal)
+Se puede crear una rama, para modificar la rama principal, sin afectar la version en vivo (principal). Luego se puede combinar.
+
+// CREAR RAMA
+$git branch versionExplicacion-2
+
+// Para ver las ramas que se tienen
+$git branch (en verde muestra que rama se encuentra)
+* main_rama
+ versionExplicacion-2
+
+//PARA CAMBIAR DE RAMA
+$ git checkout versionExplicacion-2
+
+// CREAR RAMA Y CAMBIAR A ESA RAMA AUTOMATICO
+$ git checkout -b otraRamaVersion-3
+
+// Cambiar el nombre a una rama
+(debemos estar en esa rama)
+$ git checkout versionExplicacion-2
+$ git branch -m otraRamaVersion2
+
+// Cambiar el nombre de la rama sin estar en esa rama
+$ git checkout main_rama
+$ git branch -m otraRamaVersion-3 otraRamaVersion3
+
+// ELIMINAR UNA DE LAS RAMA
+$ git branch -d otraRamaVersion3
+(esto borra de manera local, no lo publicado en github.No estar en la rama borrada)
+
